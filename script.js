@@ -1,42 +1,37 @@
 let msg = document.getElementById("msg");
 let btn = document.getElementById("btn");
-let msgf;
-msg.innerHTML = "";
+let dado = document.getElementById("dado");
 
 btn.addEventListener("click",start);
+dado.addEventListener("click",rodardado);
+let p1;
+let p2;
+let p3;
 
 
 function start(){
-    let p1 = prompt("Digite seu nome");
-    let p2 = prompt(`${p1} qual seria seu poder?\n
+    btn.classList.add("none");
+    p1 = prompt("Digite seu nome");
+    p2 = prompt(`${p1} qual seria seu poder?\n
     Entre os poderes abaixo: obs. voce pode escolher outro pdoer\n
     VOA||CORRER||RAIOS||SABEDORIA`);
-    let p3 = prompt("Digite o nome do seu vilão: ");
+    p3 = prompt("Digite o nome do seu vilão: ");
     
-    switch(p2){
-        case "VOA":
-        case "voa":
-            msgf = `Perdeu`;
-            break;
-        case "CORRER":
-        case "correr":
-            msgf = `Ganhou`;
-            break;
-        case "RAIOS":
-        case "raios":
-            msgf = `Perdeu`;
-            break;
-        case "SABEDORIA":
-        case "sabedoria":
-            msgf = `Ganhou`;
-            break;
-        default:
-            msgf = `Perdeu`;
-            break;
+    msg.innerHTML = `Gire o dado para saber o resultado: `;
+    dado.classList.remove("none");
+}
+
+function rodardado(){
+    var min = 0;
+    var max = 10;
+    let res = Math.floor(Math.random() * (max-min));
+
+    if(res<5){
+        msg.innerHTML = `O(A) ${p1} lutou contrar o(a) ${p3} com o poder ${p2} e no final perdeu`;
+    }else{
+        msg.innerHTML = `O(A) ${p1} lutou contrar o(a) ${p3} com o poder ${p2} e no final GANHOU`;
     }
-
-
-
-    msg.innerHTML = `O(A) ${p1} lutou contrar o(a) ${p3} com o poder ${p2} e o resultado é: \n
-    ${msgf}`;
+    dado.classList.add("none");
+    btn.classList.remove("none");
+    btn.innerHTML = "Jogar novamente!";
 }
