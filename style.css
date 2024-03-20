@@ -8,7 +8,11 @@ body{
     font-size: 30px;
     text-align: center;
 }
+.none{
+    display: none;
+}
 p{
+    margin-top: 1%;
     background-image: linear-gradient(to right,aqua,purple);
     font-size: 20px;
     text-align: center;
@@ -23,7 +27,7 @@ button{
     padding-bottom: 10px;
     border-radius: 15px;
     border-style: none;
-    margin: 3% 0 0 0;
+    margin: 3% 0 3% 0;
     font-size: 1.5rem;
     color: darkgreen;
     background-image: linear-gradient(to right,#636363,#adadad);
